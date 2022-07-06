@@ -25,30 +25,68 @@ source("GrabData.R")
 
 The data in the dataframe GSSdata is from the 2018 General Social Survey. The first blocks of R-code has selected down a subset of the data to just 16 variables. It has further removed unwanted factor levels in much of the data. Examine the code in the GrabData.R file to see what it is doing. Some of the variables are categorical and others are numerical. Be sure to do a variable analysis before tackling each question.  
 First question - Is opinion on the death penalty (CAPPUN) independent of gun ownership (OWNGUN)?
-
+  
+$H_0$: There is no relationship to gun ownership and the opnion on the death penalty.  
+$H_A$: There is a relationship to gun ownership and opinion on the death penalty. 
 
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+  
+Both variables are categorical, each with two levels: OWNGUN Yes/No CAPPUN Yes/No
 
+So we will be using Cat~Cat analysis.  
+Chi-squared test of independence, fisher exact to test for odds ration.
+  
 ## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
-
+  
+    
 ### Descriptive Results
 
 #### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+  
+```{r}
+barchartGC(~OWNGUN + CAPPUN,data=GSSdata)
+barchartGC(~OWNGUN + CAPPUN,data=GSSdata, type="percent")
 
+```
+
+For the chart above you can see that people that own a gun and slightly more in favor for the death penalty. People that do not own the gun and slightly more opposed to the death penalty versus the people that own a gun.
+
+  
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~OWNGUN + CAPPUN, data=GSSdata)
+rowPerc(table1)
+colPerc(table1)
+```
+  
+In the table above if you own a gun you are more in favor for the death penalty. If you don't own a gun you are more more likely to oppose the death penalty. 
+   
 ### Inferential Results
 
+<<<<<<< HEAD
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!--> 
 
+=======
+<!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+  
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+  
+In the Chi-squared test X-squared = 5.3932, df = 1, p-value = 0.02022. So since the p-value is so small we reject the null hypothesis. The odds ratio is 2.271 and it means people that own a gun are 2.2 times more likely to favor the death penalty.   
+  
+>>>>>>> Question1
 # Question 2
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
@@ -104,7 +142,7 @@ From the t-test the p-value is 0.0000001248 and since it is so small we reject t
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
-Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).
+Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).  
 
 $H_0$ There is no difference between the average score on the WORDSUM test and level of schooling DEGREE  
 $H_a$ There is a significant difference in average score on the WORDSUM test between at least two levels of DEGREE  
@@ -157,3 +195,4 @@ The p-value is 0.00000025. Since the p-value is less than 0.05 we reject the nul
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
 In the first one we found that gun ownership does affect the opinion on capital punishment. People that own a gun are more likely to be in favor of the death penalty. 
+
