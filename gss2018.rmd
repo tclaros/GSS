@@ -1,7 +1,7 @@
 ---
 title: "General Social Survey"
-author: "Your Name"
-date: "Year 2020"
+author: "Tanya Claros"
+date: "Summer 2022"
 output: 
   html_document:
     number_sections: true
@@ -19,7 +19,7 @@ source("GrabData.R")
 
 
 
-#  Question 1
+# Question 1
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
@@ -31,7 +31,7 @@ First question - Is opinion on the death penalty (CAPPUN) independent of gun own
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-##Results
+## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
@@ -49,7 +49,7 @@ First question - Is opinion on the death penalty (CAPPUN) independent of gun own
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-#  Question 2
+# Question 2
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
@@ -59,7 +59,7 @@ Is there a difference in years of education (EDUC) between the those who did or 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-##Results
+## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
@@ -77,7 +77,7 @@ Is there a difference in years of education (EDUC) between the those who did or 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-#  Question 3
+# Question 3
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
@@ -87,7 +87,7 @@ Determine if a persons performance on the wordsum test (WORDSUM) is independent 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
-##Results
+## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
