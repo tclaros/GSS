@@ -106,10 +106,15 @@ From the t-test the p-value is 0.0000001248 and since it is so small we reject t
 
 Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).
 
+$H_0$ There is no difference between the average score on the WORDSUM test and level of schooling DEGREE  
+$H_a$ There is a significant difference in average score on the WORDSUM test between at least two levels of DEGREE  
+  
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
-
+  
+WORDSUM is Numerical variable, DEGREE is a Categorical variable. 
+  
 ## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -120,16 +125,35 @@ Determine if a persons performance on the wordsum test (WORDSUM) is independent 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+boxplot(WORDSUM~DEGREE,data=GSSdata)
+```
+  
+From the box plot it appears that students that have less than High School have a median less than that of students in High School and with a Bachelor's.   
+  
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+favstats(WORDSUM~DEGREE,data=GSSdata)
+```
+  
+From this table, it appears that the median if the Graduate students is the greatest with an 11. It looks like there is a difference in the ability in the WORDSUM.
+  
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=GSSdata)
+summary.aov(model1)
+```
+
+The p-value is 0.00000025. Since the p-value is less than 0.05 we reject the null hypothesis. 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+In the first one we found that gun ownership does affect the opinion on capital punishment. People that own a gun are more likely to be in favor of the death penalty. 
