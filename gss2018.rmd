@@ -80,7 +80,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
   
-In the Chi-squared test X-squared = 5.3932, df = 1, p-value = 0.02022. So since the p-value is so small we reject the null hypothesis. The odds ratio is 2.271 and it means people that own a gun are 2.2 times more likely to favor the death penalty. 
+In the Chi-squared test X-squared = 5.3932, df = 1, p-value = 0.02022. So since the p-value is so small we reject the null hypothesis. The odds ratio is 2.271 and it means people that own a gun are 2.2 times more likely to favor the death penalty.   
   
 # Question 2
 
