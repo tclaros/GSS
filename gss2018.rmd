@@ -33,29 +33,55 @@ $H_A$: There is a relationship to gun ownership and opinion on the death penalty
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
   
-Both variables are categorical, each with two levels. OWNGUN Yes/No DEATHPEN Yes/No
+Both variables are categorical, each with two levels: OWNGUN Yes/No CAPPUN Yes/No
 
-So we will be using Cat~Cat analysis.
+So we will be using Cat~Cat analysis.  
 Chi-squared test of independence, fisher exact to test for odds ration.
   
 ## Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
-
+  
+    
 ### Descriptive Results
 
 #### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+  
+```{r}
+barchartGC(~OWNGUN + CAPPUN,data=GSSdata)
+barchartGC(~OWNGUN + CAPPUN,data=GSSdata, type="percent")
 
+```
+
+For the chart above you can see that people that own a gun and slightly more in favor for the death penalty. People that do not own the gun and slightly more opposed to the death penalty versus the people that own a gun.
+
+  
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~OWNGUN + CAPPUN, data=GSSdata)
+rowPerc(table1)
+colPerc(table1)
+```
+  
+In the table above if you own a gun you are more in favor for the death penalty. If you don't own a gun you are more more likely to oppose the death penalty. 
+   
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
+  
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+  
+In the Chi-squared test X-squared = 5.3932, df = 1, p-value = 0.02022. So since the p-value is so small we reject the null hypothesis. The odds ratio is 2.271 and it means people that own a gun are 2.2 times more likely to favor the death penalty. 
+  
 # Question 2
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
